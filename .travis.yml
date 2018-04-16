@@ -1,3 +1,6 @@
+env:
+  - GLIBC_VERSION="$(cat glibc-build/build.sh | grep GLIBC=glibc | cut -d= -f2)"
+
 install:
   - curl -fsSL get.docker.com -o get-docker.sh
   - sudo sh get-docker.sh
@@ -5,12 +8,19 @@ install:
 script:
   - sudo bash .travis.sh
 
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "willmarkley"
+  - git config --local user.email "willjmarkley@gmail.com"
+  - export 
+  - git tag "$GLIBC_VERSION"
+
 deploy:
   provider: releases
   api_key:
     secure: VrdDE9c20+GqZSkkctnEzYfexRGC2KkQzbbevROp1Qjz2tUJRW4zxmy3TnCtww+iqzsWtny9OuiFWt1b4L5qsM9rcB52btbzNEbn9NPDPLna6IvznU9nePQflVyw51Wuh9/mpE6tYsLqAV4j6nUMg5dRPzBEIzDbpiC9JZ2q8KKf7b5mZLnfyd1bozocNnoPwNjyeKIZFfdLsRRRLLHkuy37sEMVfpAJtVh2xSo3QlUwwc3Y+aqLAw9Td/3VzVq0/AJIz9oFTYhiR0bGmub/FGPNOU/BS26n7unLPozgJ6EgI2YDQt03HkFMsB4n1cWcUArX1mTMA3aqnYPXSnVBjmdSiBvJBlpGQb9aurLl5c6cwkct/igjzrnAhKXHhULtN2mNfyZrLmZ8j+EMnk3AA/yhrF0b71Rjgwawc+d4d+7DjJ+fiPZqUEFy3Mttov9A0YTOsV9Bcxp9SSQfi/C9W/6/7LrsHPH/dF3arN5d63lJcuitF/DVALiQEU1Fgb0wter3NrbAliQVsdgdXyziC0moghCVkzK2GmmQ+TrBosErgvVfv4UvLzBw0/KZ3FOA7kLqXqgBaTVj62K6fsJA77dM7nXPoSK8DITnNeBjqKNSgJYDhYAOa25wuykwDcHt+uRW7Cmmk/RB0UUInUOjco/mwcaazc9zlncUfG0swNw=
   file_glob: true
-  file: glibc-build/*-wml.tar.gz
+  file: glibc-build/$GLIBC_VERSION-wml.tar.gz
   skip_cleanup: true
   on:
     condition: -a glibc-build/GLIBC_BUILD_DEPLOY.out
