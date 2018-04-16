@@ -1,7 +1,7 @@
 all: glibc-build
 
 glibc-build: build.sh
-	wget http://willmarkley.com/glibc-2.27-wml.tar.gz 
+	wget -nv http://willmarkley.com/glibc-2.27-wml.tar.gz 
 	#/bin/bash build.sh # requires sudo
 
 deploy:
