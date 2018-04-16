@@ -69,13 +69,14 @@ umount -v $ROOT_DIR/proc
 umount -v $ROOT_DIR/sys
 rm -v $ROOT_DIR/dev/{console,null}
 
-## Remove temporary symlinks
+## Remove temporary symlinks and files
 rm -v $ROOT_DIR/bin/{bash,cat,dd,echo,ln,pwd,rm,stty}
 rm -v $ROOT_DIR/bin/{install,perl,m4}
 rm -v $ROOT_DIR/lib/libgcc_s.so{,.1}
 rm -v $ROOT_DIR/lib/libstdc++.{a,so{,.6}}
 rm -v $ROOT_DIR/bin/sh
 rm -v $ROOT_DIR/lib/gcc
+rm -v $ROOT_DIR/chroot.sh
 
 ## Package completed build
 CURR_DIR=`pwd`

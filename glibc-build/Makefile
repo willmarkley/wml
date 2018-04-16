@@ -1,7 +1,8 @@
 all: glibc-build
 
 glibc-build: build.sh
-	/bin/bash build.sh # requires sudo
+	# requires sudo
+	/bin/bash build.sh
 
 deploy:
 	@echo "Deploy with Travis CI"

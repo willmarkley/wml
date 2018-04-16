@@ -34,6 +34,7 @@ cp -v /tools/lib/ld-linux-x86-64.so.2 /lib64
 
 
 ## INSTALL LINUX KERNEL API HEADERS ##
+echo "INSTALL LINUX KERNEL API HEADERS"
 ## Extract and change directory
 cd /sources
 tar -xf $LINUX_TAR
@@ -47,6 +48,7 @@ cp -rv dest/include/* /usr/include
 
 
 ## INSTALL GLIBC ##
+echo "INSTALL GLIBC"
 ## Extract and change directory
 cd /sources
 tar -xf $GLIBC_TAR
@@ -79,7 +81,7 @@ make --silent
 
 ## make install
 sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
-make install
+make --silent install
 
 ## nscd
 cp -v ../nscd/nscd.conf /etc/nscd.conf
