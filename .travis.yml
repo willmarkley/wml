@@ -12,7 +12,6 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "willmarkley"
   - git config --local user.email "willjmarkley@gmail.com"
-  - export 
   - git tag "$GLIBC_VERSION"
 
 deploy:
