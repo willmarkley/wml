@@ -1,9 +1,8 @@
 all: glibc-build
 
-# requires sudo
 glibc-build: build.sh
 	wget http://willmarkley.com/glibc-2.27-wml.tar.gz 
-	#/bin/bash build.sh
+	#/bin/bash build.sh # requires sudo
 
 deploy:
 	@echo "Deploy with Travis CI"
