@@ -13,5 +13,5 @@ deploy:
   file: glibc-build/*-wml.tar.gz
   skip_cleanup: true
   on:
-    condition: -a GLIBC_BUILD_DEPLOY.out
+    condition: -a glibc-build/GLIBC_BUILD_DEPLOY.out
     repo: willmarkley/wml
