@@ -41,7 +41,7 @@ cd $LINUX
 
 ## Build and install headers
 make mrproper
-make INSTALL_HDR_PATH=dest headers_install
+make --silent INSTALL_HDR_PATH=dest headers_install
 find dest/include \( -name .install -o -name ..install.cmd \) -delete
 cp -rv dest/include/* /usr/include
 
@@ -75,7 +75,7 @@ CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \
 unset GCC_INCDIR
 
 ## make
-make
+make --silent
 
 ## make install
 sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
