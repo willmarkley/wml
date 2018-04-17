@@ -8,7 +8,6 @@ BUILD_DIR = build
 DOCKER    = /usr/bin/docker
 
 
-# Build Docker Image using binaries
 all: build-docker
 
 build-docker: Dockerfile $(BUILD_DIR)
