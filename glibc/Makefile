@@ -1,8 +1,8 @@
-IMG       = glibc
+IMG     = glibc
 
-VERSION   = 2.27
-SRC       = glibc-$(VERSION)-wml.tar.gz
-SRC_URL   = https://github.com/willmarkley/wml/releases/download/glibc-$(VERSION)/$(SRC)
+VERSION = 2.27
+SRC     = glibc-$(VERSION)-wml.tar.gz
+SRC_URL = https://github.com/willmarkley/wml/releases/download/glibc-$(VERSION)/$(SRC)
 
 BUILD_DIR = build
 DOCKER    = /usr/bin/docker
